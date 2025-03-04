@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Egg Timer</title>
+</head>
+<body>
+    <h1>
+        Egg Timer
+    </h1>
+    <div class="container">
+        <div class="button-container">
+            <div class="egg-choice">
+                <button class="egg-btn soft-boiled" id="soft-boiled"></button>
+                <p>Soft Boiled</p>
+            </div>
+            <div class="egg-choice">
+                <button class="egg-btn hard-boiled" id="hard-boiled"></button>
+                <p>Hard Boiled</p>
+            </div>
+            <div class="egg-choice">
+                <button class="egg-btn fried-egg" id="fried-egg"></button>
+                <p>Fried Egg</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    
+    <script>
+        document.getElementById("soft-boiled").addEventListener("click", function(){
+            window.location.href = "soft-boiled.html"
+        })
+
+        document.getElementById("hard-boiled").addEventListener("click", function(){
+            window.location.href = "hard-boiled.html"
+        })
+
+        document.getElementById("fried-egg").addEventListener("click", function(){
+            window.location.href = "fried-egg.html"
+        })
+        
+
+    </script>
+
+</body>
+</html>

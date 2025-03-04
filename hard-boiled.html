@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Egg Timer</title>
+</head>
+<body>
+    <h1>Egg Timer</h1>
+    <div class="container">
+        <p class="timer">10:00</p>
+        <img class="potAnimation" src="assets/boiled1.jpg" alt="Pot Animation">
+        <button class="startTimer">Start Timer</button>
+    </div>
+
+
+    <script>
+        let timerRunning = false;
+        document.querySelector(".startTimer").addEventListener("click", function(){
+            if(!timerRunning){
+                timerRunning = true;
+                this.disabled = true;
+                startTimer(600, document.querySelector(".timer"));
+                startImageAnimation();
+            }
+        });
+
+        function startTimer(duration, display){
+            let timeLeft = duration;
+            const alarmSound = new Audio("sounds/alarm.wav");
+
+            function updateTimer() {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                display.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+
+                if (timeLeft > 0) {
+                    timeLeft--;
+                    setTimeout(updateTimer, 1000);
+                } else {
+                    alarmSound.play();
+                    setTimeout(() => window.location.href = "finished.html", 3000);
+                }
+            }
+
+            updateTimer(); 
+        }
+
+        function startImageAnimation(){
+            let eggImages = ["assets/boiled1.jpg", "assets/boiled2.jpg"];
+            let imageElement = document.querySelector(".potAnimation");
+            let index = 0;
+
+            setInterval(() =>{
+                imageElement.src = eggImages[index];
+                index = (index + 1) % eggImages.length;
+            }, 1000)
+
+        }
+
+
+    </script>
+</body>
+</html>

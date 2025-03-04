@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Your Egg is Ready!</h1>
+    <div class="container">
+        <img src="assets/finished-egg.jpg" id="end-egg" alt="finished-egg">
+        <button class="startTimer" id="againButton">Cook Another</button>
+        <button class="startTimer" id="exitButton">Exit</button>
+    </div>
+
+
+    <script>
+        document.getElementById("againButton").addEventListener("click", function(){
+            window.history.back(); 
+        })
+
+        document.getElementById("exitButton").addEventListener("click", function(){
+            window.location.href = "index.html"; 
+        })
+
+    </script>
+</body>
+</html>
